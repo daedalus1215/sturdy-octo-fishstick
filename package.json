@@ -10,5 +10,15 @@
   },
   "devDependencies": {
     "jest": "^29.5.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "events": "^3.3.0",
+    "fs": "^0.0.1-security"
   }
 }

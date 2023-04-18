@@ -1,4 +1,4 @@
-import FindRegex from "./FindRegex";
+import FindRegex from "./FindRegex.js";
 
 
 describe('', () => {

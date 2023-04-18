@@ -1,5 +1,5 @@
-import { EventEmitter } from 'events'
-import { readFile } from 'fs'
+const { EventEmitter } = require('events')
+const { readFile } = require('fs')
 
 class FindRegex extends EventEmitter {
     constructor(regex) {
@@ -12,7 +12,7 @@ class FindRegex extends EventEmitter {
         return this
     }
     find() {
-        this.emit('start', this.files)
+        process.nextTick(() =>  this.emit('start', this.files))
         for (const file of this.files) {
             readFile(file, 'utf8', (err, content) => {
                 if (err) {
@@ -29,4 +29,4 @@ class FindRegex extends EventEmitter {
     }
 }
 
-export default FindRegex;
+module.exports = FindRegex;
