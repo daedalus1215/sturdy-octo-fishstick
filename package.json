@@ -1,0 +1,14 @@
+{
+  "name": "node_stuff",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/daedalus1215/sturdy-octo-fishstick.git",
+  "author": "daedalus1215 <13687739+daedalus1215@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
