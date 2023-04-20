@@ -1,5 +1,6 @@
-class TaskQueue {
+class TaskQueue extends EventEmitter {
     constructor(concurrency) {
+        super();
         this.concurrency = concurrency;
         this.running = 0;
         this.queue = [];
@@ -12,9 +13,16 @@ class TaskQueue {
     }
 
     next() {
-        while(this.running < this.concurrency && this.queue.length) {
+        if (this.running === 0 && this.queue.length === 0) {
+            return this.emit('empty')
+        }
+
+        while (this.running < this.concurrency && this.queue.length) {
             const task = this.queue.shift();
-            task(() => {
+            task((err) => {
+                if (err) {
+                    this.emit('error', err)
+                }
                 this.running--;
                 process.nextTick(this.next.bind(this))
             });
@@ -23,4 +31,4 @@ class TaskQueue {
     }
 }
 
-module.exports = TaskQueue
+module.exports = { TaskQueue }
