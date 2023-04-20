@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "events": "^3.3.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "mkdirp": "^3.0.0",
+    "superagent": "^8.0.9"
   }
 }
